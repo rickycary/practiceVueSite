@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Hello World</h1>
+    <h2>{{ cheese }}</h2>
+    <HelloWorld v-bind:cheese="cheese"/>
+    <button v-on:click="handleClick">Click Me</button>
+  </div>
 </template>
 
+
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      cheese: "gouda"
+    }
+  }, 
   components: {
     HelloWorld
+  },
+  methods: {
+    handleClick: function() {
+      this.cheese = "munster"
+    }
   }
-}
+};
+
+
 </script>
 
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  h1 {
+    color: green;
+  }
 </style>
